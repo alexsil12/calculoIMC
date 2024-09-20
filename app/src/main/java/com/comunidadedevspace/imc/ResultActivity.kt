@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.util.Spliterator.OfLong
 
-const val  KEY_RESULT_IMC = "ResultActivity.KEY_IMC"
+
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,24 +16,23 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_result)
 
-        val result = intent.getFloatExtra(KEY_RESULT_IMC, 0f)
+        val result = intent.getFloatExtra("Extra_result" ,0.1f)
 
         val tvResult = findViewById<TextView>(R.id.tv_result)
         val tvClassificacao = findViewById<TextView>(R.id.classificacao)
         tvResult.text = result.toString()
 
         val classificacao: String = if (result <= 18.5f) {
-            "MAGREZA"
+            "MAGREZA" + "@color/blue"
         } else if (result > 18.5f && result <= 24.9f) {
-            "NORMAL"
+            "NORMAL" + "@color/cyan"
         } else if (result > 25f && result <= 29.9f) {
-            "SOBREPESO"
+            "SOBREPESO" + "@color/orange"
         } else if (result > 30f && result <= 39.9f) {
-            "OBSIDADE"
+            "OBSIDADE" + "@color/red"
         } else {
-            "OBSIDADE GRAVE"
+            "OBSIDADE GRAVE" + "@color/red"
         }
-
 
         tvClassificacao.text = classificacao
 
