@@ -23,15 +23,15 @@ class ResultActivity : AppCompatActivity() {
         tvResult.text = result.toString()
 
         val classificacao: String = if (result <= 18.5f) {
-            "MAGREZA"
+            "MAGREZA" + "@color/blue"
         } else if (result > 18.5f && result <= 24.9f) {
-            "NORMAL"
+            "NORMAL" + "@color/cyan"
         } else if (result > 25f && result <= 29.9f) {
-            "SOBREPESO"
+            "SOBREPESO" + "@color/orange"
         } else if (result > 30f && result <= 39.9f) {
-            "OBSIDADE"
+            "OBSIDADE" + "@color/red"
         } else {
-            "OBSIDADE GRAVE"
+            "OBSIDADE GRAVE" + "@color/red"
         }
 
         tvClassificacao.text = classificacao
